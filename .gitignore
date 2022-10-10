@@ -1,2 +1,3 @@
 .dccache
 bin
+src/db/SQLUser.java

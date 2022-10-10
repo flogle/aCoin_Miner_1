@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import db.SQL;
 import ptdfj.PTDFJHandlerString;
 
 import java.awt.event.ActionEvent;
@@ -12,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.util.Base64;
 
 public class ACoinApp implements ActionListener {
+
+    public static SQL sqlH = new SQL();
 
     private JFrame frame;
     private JLabel loadFileText;
@@ -59,8 +62,10 @@ public class ACoinApp implements ActionListener {
 
                 PTDFJHandlerString dataH = new PTDFJHandlerString(tString);
 
-                System.out.println(dataH.getData().get("user_id"));
-                System.out.println(dataH.getData().get("acoin_id"));
+                long userID =  Long.parseLong(dataH.get("user_id"));
+                long acoinID = Long.parseLong(dataH.get("acoin_id"));
+
+
 
             } catch (Exception ex) {
 
