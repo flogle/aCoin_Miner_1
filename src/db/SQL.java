@@ -14,7 +14,7 @@ public class SQL {
         
         try {
 
-            String driver = "com.mysql.jdbc.Driver";
+            String driver = "com.mysql.cj.jdbc.Driver";
             String url = "jdbc:mysql://localhost:3306/flogle";
             String username = SQLUser.username;
             String password = SQLUser.password;
