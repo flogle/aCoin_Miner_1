@@ -1,3 +1,9 @@
 .dccache
 bin
 src/db/SQLUser.java
+bin/
+.classpath
+.project
+.settings/
+*/.DS_Store
+
