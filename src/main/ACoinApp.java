@@ -87,8 +87,27 @@ public class ACoinApp implements ActionListener {
                 ACoinUserData acoinData = ACoinApp.sqlH.getAcoinUserDataByID(acoinID);
 
 
-                System.out.println(userData);
-                System.out.println(acoinData);
+                if (userData == null) {
+                	
+                	
+                	throw new Exception();
+                	
+                	
+                	
+                }
+                
+                if (acoinData == null) {
+                	
+                	
+                	throw new Exception();
+                	
+                	
+                }
+                
+                this.frame.setVisible(false);
+                this.frame.dispose();
+                
+                new MineDash(userData, acoinData);
 
 
 
