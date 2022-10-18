@@ -101,7 +101,13 @@ public class MineDash implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		
-		
+		if (event.getSource().equals(this.defaultMineBTN) || event.getSource().equals(this.displayModeMineBTN)) {
+			
+			this.frame.setVisible(false);
+			this.frame.dispose();
+			new DisplayMode(this.userData, this.aCoinUserData);
+			
+		}
 		
 		
 	}
