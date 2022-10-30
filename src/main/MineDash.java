@@ -105,7 +105,13 @@ public class MineDash implements ActionListener {
 			
 			this.frame.setVisible(false);
 			this.frame.dispose();
-			new DisplayMode(this.userData, this.aCoinUserData);
+			new DisplayMode(this.userData);
+			
+		} else if (event.getSource().equals(this.lowModeMineBTN)) {
+			
+			this.frame.setVisible(false);
+			this.frame.dispose();
+			new LowMode(this.userData);
 			
 		}
 		

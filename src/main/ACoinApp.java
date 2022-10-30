@@ -82,6 +82,8 @@ public class ACoinApp implements ActionListener {
 
 
         this.mineCodeINE.setBounds(100, 200, 250, 32);
+        
+        this.loadMineCodeBTNE.setFont(ACoinApp.FONT.deriveFont(Font.BOLD, 12f));
 
         this.loadMineCodeBTNE.setBounds(100, 250, 250, 32);
         this.loadMineCodeBTNE.addActionListener(this);

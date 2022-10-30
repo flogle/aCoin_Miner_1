@@ -115,6 +115,32 @@ public class SQL {
 
     }
     
+    public boolean addAcoins(long user_id, double acoins) {
+
+        try {
+
+
+            PreparedStatement query = this.conn.prepareStatement("CALL addAcoin(?, ?)");
+
+            query.setLong(1, user_id);
+            query.setDouble(2, acoins);
+            
+            query.executeQuery();
+            
+            return true;
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            
+        }
+        
+        return false;
+
+    }
+    
     public ACoinUserData getAcoinUserDataByID(long acoinID) {
 
         try {
