@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import data.ACoinData;
 import data.ACoinUserData;
 import data.User;
 
@@ -79,6 +80,41 @@ public class SQL {
 
     }
 
+    
+    public ACoinData getACoinData() {
+
+        try {
+
+
+            PreparedStatement query = this.conn.prepareStatement("SELECT * FROM acoin_globals WHERE id = ? LIMIT 1");
+
+            query.setLong(1, 1L);
+
+            ResultSet result = query.executeQuery();
+
+            ACoinData aCoinData = null;
+
+            while (result.next()) {
+
+            	aCoinData = new ACoinData(result.getLong("id"), result.getBoolean("canMine"), result.getString("current_app_version"));
+
+            }
+
+            return aCoinData;
+
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            
+        }
+        
+        return null;
+
+    }
+    
     public ACoinUserData getAcoinUserDataByID(long acoinID) {
 
         try {

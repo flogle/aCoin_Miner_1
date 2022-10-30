@@ -1,30 +1,34 @@
 package main;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Base64;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import db.SQL;
+import data.ACoinData;
 import data.ACoinUserData;
 import data.User;
+import db.SQL;
 import ptdfj.PTDFJHandlerString;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Font;
-import java.util.Base64;
 
 public class ACoinApp implements ActionListener {
 
     public static SQL sqlH = new SQL();
     public static Font FONT;
-
+    public static final String VERSION = "1.0"; 
+    
+    
     private JFrame frame;
     private JLabel loadFileText;
     private JTextField mineCodeINE;
     private JButton loadMineCodeBTNE;
+    
 
     public ACoinApp() {
 
@@ -38,6 +42,29 @@ public class ACoinApp implements ActionListener {
             e.printStackTrace();
 
         }
+        
+        ACoinData aCoinData = ACoinApp.sqlH.getACoinData();
+        
+        if (!aCoinData.getCurrent_app_version().equals(ACoinApp.VERSION)) {
+        	
+        	
+            JOptionPane.showMessageDialog(this.frame, "Error this app version is not up to date!", "Error", JOptionPane.ERROR_MESSAGE);
+
+            System.exit(0);
+        		
+        	
+        }
+        
+        if (!aCoinData.isCanMine()) {
+        	
+        	
+            JOptionPane.showMessageDialog(this.frame, "You can not mine aCoin right now!", "Error", JOptionPane.WARNING_MESSAGE);
+
+            System.exit(0);
+        	
+        	
+        }
+        
 
         this.frame = new JFrame();
         this.loadFileText = new JLabel("Enter your aCoin mine app code");
