@@ -21,7 +21,6 @@ public class ACoinApp implements ActionListener {
 
     public static SQL sqlH = new SQL();
     public static Font FONT;
-    public static final String VERSION = "1.0"; 
     
     
     private JFrame frame;
@@ -45,7 +44,7 @@ public class ACoinApp implements ActionListener {
         
         ACoinData aCoinData = ACoinApp.sqlH.getACoinData();
         
-        if (!aCoinData.getCurrent_app_version().equals(ACoinApp.VERSION)) {
+        if (!aCoinData.getCurrent_app_version().equals(App.VERSION)) {
         	
         	
             JOptionPane.showMessageDialog(this.frame, "Error this app version is not up to date!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -77,7 +76,7 @@ public class ACoinApp implements ActionListener {
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setResizable(false);
 
-        this.loadFileText.setBounds(60, 50, 375, 30);
+        this.loadFileText.setBounds(60, 50, 425, 30);
         this.loadFileText.setFont(ACoinApp.FONT.deriveFont(Font.BOLD, 25f));
 
 
