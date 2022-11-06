@@ -39,7 +39,7 @@ public class CLIApp {
 		User userData = null;
 		ACoinUserData acoinData = null;
 
-		while (mineCode == "") {
+		while (mineCode == "" || mineCode == " " || mineCode.trim() == "") {
 
 			mineCode = getText("Enter your aCoin mine code: ");
 
@@ -98,8 +98,12 @@ public class CLIApp {
 		System.out.println(acoinData.isLocked() ? "This user is locked!" : "This user is unlocked!");
 		System.out.println(acoinData.isAdmin() ? "This user is a admin!" : "This user is not a admin!");
 		System.out.println(String.format("You have %s aCoins!", String.valueOf(acoinData.getAcoins())));
-		System.out.println(userData);
-		System.out.println(acoinData);
+		
+		String mode = getText("Enter a mode (display, low): ");
+		String numberOfThreads = getText("Enter the number of mines you want to run: ");
+		
+		
+		
 
 	}
 
